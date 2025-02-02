@@ -1,0 +1,15 @@
+{% extends "principal.html" %}
+
+{% block contenido %}
+    {% if user.is_authenticated %}
+        <h1>Servicio Eliminado</h1>
+        {% if perms.alquiler.delete_servicioextra %}
+            <p>El Servicio ha sido eliminado con éxito.</p>
+            <a href="{% url 'servicioextra_lista' %}">Volver a la lista de Servicios</a>
+        {% else %}
+            <p>No tienes permisos para eliminar este servicio.</p>
+        {% endif %}
+    {% else %}
+        <p>No estás logueado. Por favor, <a href="{% url 'login' %}">inicia sesión</a> para continuar.</p>
+    {% endif %}
+{% endblock contenido %}
