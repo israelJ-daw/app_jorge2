@@ -4,5 +4,5 @@ from .api_views import *
 
 urlpatterns = [
     
-    path('usuarios', usuario_lista2)
+    path('usuarios/', usuario_lista2)
 ]
