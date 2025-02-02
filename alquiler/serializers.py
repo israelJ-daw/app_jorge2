@@ -7,4 +7,16 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = Usuario  
         fields = ['nombre', 'email']  
         
-            
+
+
+class PropiedadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Propiedad
+        fields = '__all__'  
+
+class CategoriaSerializer(serializers.ModelSerializer):
+    num_propiedades = serializers.IntegerField() 
+
+    class Meta:
+        model = Categoria
+        fields = ['id', 'nombre', 'num_propiedades'] 
