@@ -1367,7 +1367,7 @@
 },
 {
     "model": "alquiler.servicioextra",
-    "pk": 3,
+    "pk": 1,
     "fields": {
         "nombre": "desayuno",
         "descripcion": "desayuno en cama",
@@ -1376,14 +1376,68 @@
     }
 },
 {
+    "model": "alquiler.servicioextra",
+    "pk": 2,
+    "fields": {
+        "nombre": "camas dobles",
+        "descripcion": "camas dobles",
+        "precio": 30,
+        "disponible": true
+    }
+},
+{
+    "model": "alquiler.servicioextra",
+    "pk": 3,
+    "fields": {
+        "nombre": "cena",
+        "descripcion": "cena en cama",
+        "precio": 50,
+        "disponible": true
+    }
+},
+{
+    "model": "alquiler.servicioextra",
+    "pk": 4,
+    "fields": {
+        "nombre": "masaje",
+        "descripcion": "masajes al gusto",
+        "precio": 80,
+        "disponible": true
+    }
+},
+{
+    "model": "alquiler.propiedad",
+    "pk": 1,
+    "fields": {
+        "titulo": "propiedad 1",
+        "direccion": "sevilla este",
+        "precio_por_noche": 22,
+        "max_usuarios": 3,
+        "usuario": 2,
+        "servicios_extra": []
+    }
+},
+{
+    "model": "alquiler.propiedad",
+    "pk": 2,
+    "fields": {
+        "titulo": "propiedad 2",
+        "direccion": "las 3000",
+        "precio_por_noche": 59,
+        "max_usuarios": 8,
+        "usuario": 4,
+        "servicios_extra": []
+    }
+},
+{
     "model": "alquiler.propiedad",
     "pk": 4,
     "fields": {
-        "titulo": "dwdwdwdwd",
-        "direccion": "wdwdwwdw",
-        "precio_por_noche": 22,
-        "max_usuarios": 2,
-        "usuario": 2,
+        "titulo": "propiedad 4",
+        "direccion": "Malaga",
+        "precio_por_noche": 112,
+        "max_usuarios": 5,
+        "usuario": 4,
         "servicios_extra": []
     }
 },
