@@ -209,15 +209,9 @@ class BusquedaAvanzadaUsuarioForm(forms.Form):
 
 
 class BusquedaCategoriaForm(forms.Form):
-    nombre = forms.CharField(
-        required=True, label="Nombre", max_length=100
-    )
-    premiun = forms.BooleanField(
-        required=False, label="Es Premium"
-    )
-    principal = forms.BooleanField(
-        required=False, label="Es Principal"
-    )
+    nombre = forms.CharField(required=True, label="Nombre", max_length=100)
+    premiun = forms.BooleanField(required=False, label="Es Premium")
+    principal = forms.BooleanField(required=False, label="Es Principal")
 
     def clean_nombre(self):
         nombre = self.cleaned_data.get("nombre")
@@ -225,16 +219,12 @@ class BusquedaCategoriaForm(forms.Form):
             raise forms.ValidationError("El nombre debe tener al menos 3 caracteres.")
         return nombre
 
+
+
 class BusquedaPropiedadForm(forms.Form):
-    titulo = forms.CharField(
-        required=True, label="Título", max_length=200
-    )
-    precio_min = forms.IntegerField(
-        required=False, label="Precio Mínimo", min_value=0
-    )
-    max_usuarios = forms.IntegerField(
-        required=False, label="Máximo de Usuarios", min_value=1
-    )
+    titulo = forms.CharField(required=True, label="Título", max_length=200)
+    precio_min = forms.IntegerField(required=False, label="Precio Mínimo", min_value=0)
+    max_usuarios = forms.IntegerField(required=False, label="Máximo de Usuarios", min_value=1)
 
     def clean_titulo(self):
         titulo = self.cleaned_data.get("titulo")
@@ -242,16 +232,11 @@ class BusquedaPropiedadForm(forms.Form):
             raise forms.ValidationError("El título debe tener al menos 3 caracteres.")
         return titulo
     
+
 class BusquedaServicioExtraForm(forms.Form):
-    nombre = forms.CharField(
-        required=True, label="Nombre", max_length=100
-    )
-    precio_max = forms.IntegerField(
-        required=False, label="Precio Máximo", min_value=0
-    )
-    disponible = forms.BooleanField(
-        required=False, label="Disponible"
-    )
+    nombre = forms.CharField(required=True, label="Nombre", max_length=100)
+    precio_max = forms.IntegerField(required=False, label="Precio Máximo", min_value=0)
+    disponible = forms.BooleanField(required=False, label="Disponible")
 
     def clean_nombre(self):
         nombre = self.cleaned_data.get("nombre")

@@ -104,8 +104,12 @@ def categoria_busqueda_avanzada_api(request):
         if principal is not None:
             categorias = categorias.filter(principal=principal)
 
-    serializer = CategoriaSerializer(categorias, many=True)
-    return Response(serializer.data)
+        serializer = CategoriaSerializer(categorias, many=True)
+        return Response(serializer.data)
+    else:
+        return Response(formulario.errors, status=400)
+    
+
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -121,13 +125,15 @@ def propiedad_busqueda_avanzada_api(request):
         if titulo:
             propiedades = propiedades.filter(titulo__icontains=titulo)
         if precio_min is not None:
-            propiedades = propiedades.filter(precio_por_noche__gte=precio_min)
+            propiedades = propiedades.filter(precio__gte=precio_min)
         if max_usuarios is not None:
             propiedades = propiedades.filter(max_usuarios__gte=max_usuarios)
 
-    serializer = PropiedadSerializer(propiedades, many=True)
-    return Response(serializer.data)
-
+        serializer = PropiedadSerializer(propiedades, many=True)
+        return Response(serializer.data)
+    else:
+        return Response(formulario.errors, status=400)
+    
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -147,5 +153,7 @@ def servicio_extra_busqueda_avanzada_api(request):
         if disponible is not None:
             servicios_extra = servicios_extra.filter(disponible=disponible)
 
-    serializer = ServicioExtraSerializer(servicios_extra, many=True)
-    return Response(serializer.data)
+        serializer = ServicioExtraSerializer(servicios_extra, many=True)
+        return Response(serializer.data)
+    else:
+        return Response(formulario.errors, status=400)
